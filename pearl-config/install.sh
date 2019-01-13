@@ -1,13 +1,12 @@
 function post_install(){
-    local pluginname=@name
     local giturl=@git_url
 
     # Install/update the dependency here:
     # pearl emerge PEARL_REPO_NAME/mydep
 
-    info "Installing or updating the $pluginname git repository..."
+    info "Installing or updating the ${PEARL_PKGNAME} git repository..."
     mkdir -p "${PEARL_PKGVARDIR}/pack/${PEARL_PKGREPONAME}/start"
-    install_or_update_git_repo $giturl "${PEARL_PKGVARDIR}/pack/${PEARL_PKGREPONAME}/start/$pluginname" master
+    install_or_update_git_repo $giturl "${PEARL_PKGVARDIR}/pack/${PEARL_PKGREPONAME}/start/${PEARL_PKGNAME}" master
 
     return 0
 }
