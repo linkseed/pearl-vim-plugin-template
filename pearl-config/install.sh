@@ -7,6 +7,9 @@ function post_install(){
     info "Installing or updating the ${PEARL_PKGNAME} git repository..."
     mkdir -p "${PEARL_PKGVARDIR}/pack/${PEARL_PKGREPONAME}/start"
     install_or_update_git_repo $giturl "${PEARL_PKGVARDIR}/pack/${PEARL_PKGREPONAME}/start/${PEARL_PKGNAME}" master
+    # if [ `which vim` ]; then
+    #     vim -u NONE -c "helptags ${PEARL_PKGVARDIR}/pack/${PEARL_PKGREPONAME}/start/${PEARL_PKGNAME}/doc" -c q
+    # fi
 
     return 0
 }
